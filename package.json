@@ -4,7 +4,6 @@
   "private": true,
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
-    "flow": "flow; test $? -eq 0 -o $? -eq 2",
     "test": "jest",
     "ios": "react-native run-ios",
     "android": "react-native run-android"
@@ -13,6 +12,8 @@
     "prop-types": "^15.6.0",
     "react": "16.0.0",
     "react-native": "0.50.1",
+    "react-native-page-control": "^1.1.1",
+    "react-native-refresh-list-view": "^1.0.6",
     "react-native-scrollable-tab-view": "^0.8.0",
     "react-navigation": "^1.0.0-beta.19"
   },

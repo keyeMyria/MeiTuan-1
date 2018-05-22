@@ -6,12 +6,19 @@
  * @flow
  */
 
-//import liraries
-import React, { PureComponent } from 'react'
-import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native'
 
-// create a component
-class NavigationItem extends PureComponent {
+import React, {PureComponent} from 'react'
+import {View, Text, StyleSheet, TouchableOpacity, Image, ViewPropTypes} from 'react-native'
+
+type Props = {
+    icon?: any,
+    iconStyle?: ViewPropTypes.style,
+    titleStyle?: ViewPropTypes.style,
+    title?: string,
+    onPress?: Function,
+}
+
+class NavigationItem extends PureComponent<Props> {
     render() {
         let icon = this.props.icon &&
             <Image style={[styles.icon, this.props.iconStyle]} source={this.props.icon} />
@@ -23,14 +30,14 @@ class NavigationItem extends PureComponent {
                 {icon}
                 {title}
             </TouchableOpacity>
-        );
+        )
     }
 }
 
-// define your styles
+
 const styles = StyleSheet.create({
     container: {
-        flex:1,
+        flex: 1,
         flexDirection: 'row',
         justifyContent: 'center',
         alignItems: 'center',
@@ -45,7 +52,7 @@ const styles = StyleSheet.create({
         color: '#333333',
         margin: 8,
     }
-});
+})
 
-//make this component available to the app
-export default NavigationItem;
+
+export default NavigationItem

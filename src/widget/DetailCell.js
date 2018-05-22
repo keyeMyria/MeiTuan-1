@@ -6,37 +6,43 @@
  * @flow
  */
 
-//import liraries
-import React, { PureComponent } from 'react'
-import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native'
-import { Heading1, Heading2, Paragraph } from './Text'
-import Separator from './Separator'
-import { screen, system, tool } from '../common'
 
-// create a component
-class DetailCell extends PureComponent {
+import React, {PureComponent} from 'react'
+import {View, Text, StyleSheet, Image, TouchableOpacity, ViewPropTypes} from 'react-native'
+import {Heading2, Heading3, Paragraph} from './Text'
+import Separator from './Separator'
+import {screen, system} from '../common'
+
+type Props = {
+    image?: any,
+    style?: ViewPropTypes.style,
+    title: string,
+    subtitle?: string,
+}
+
+class DetailCell extends PureComponent<Props> {
     render() {
         let icon = this.props.image && <Image style={styles.icon} source={this.props.image} />
-        
+
         return (
             <View style={styles.container}>
                 <TouchableOpacity>
                     <View style={[styles.content, this.props.style]}>
                         {icon}
-                        <Heading2>{this.props.title}</Heading2>
-                        <View style={{ flex: 1, backgroundColor: 'blue' }} />
-                        <Paragraph style={{ color: '#999999' }}>{this.props.subtitle}</Paragraph>
-                        <Image style={styles.arrow} source={require('../img/Public/cell_arrow.png')} />
+                        <Heading3>{this.props.title}</Heading3>
+                        <View style={{flex: 1, backgroundColor: 'blue'}} />
+                        <Paragraph style={{color: '#999999'}}>{this.props.subtitle}</Paragraph>
+                        <Image style={styles.arrow} source={require('../img/public/cell_arrow.png')} />
                     </View>
 
                     <Separator />
                 </TouchableOpacity>
             </View>
-        );
+        )
     }
 }
 
-// define your styles
+
 const styles = StyleSheet.create({
     container: {
         backgroundColor: 'white',
@@ -63,7 +69,7 @@ const styles = StyleSheet.create({
         height: 14,
         marginLeft: 5,
     }
-});
+})
 
-//make this component available to the app
-export default DetailCell;
+
+export default DetailCell
